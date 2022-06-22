@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-scroll";
 
 const AppLogo = require("../../assets/images/Logo.png");
 
@@ -8,14 +8,22 @@ const Header = () => {
       <img src={AppLogo} alt="logo" className="w-14 h-14" />
       <div className="flex gap-6 text-xl font-medium text-center">
         <Link
-          to="/"
-          className="hover:underline underline-offset-4 decoration-primary decoration-4 "
+          to="home"
+          spy={true}
+          smooth={true}
+          offset={25}
+          duration={500}
+          className="hover:underline underline-offset-4 decoration-red-500 hover:text-black decoration-4 "
         >
           Home
         </Link>
         <Link
-          to="/exercise"
-          className="hover:underline underline-offset-4 decoration-primary decoration-4"
+          to="exercises"
+          spy={true}
+          smooth={true}
+          offset={50}
+          duration={500}
+          className="hover:underline underline-offset-4 decoration-red-500 hover:text-black decoration-4"
         >
           Exercises
         </Link>

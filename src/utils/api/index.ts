@@ -9,5 +9,7 @@ export const api = axios.create({
   },
 });
 
-export const getBodyParts = () =>
-  api.get("/bodyPartList").then((res) => res.data);
+export const getExercise = (exercise: string) =>
+  api.get(`/bodyParts/${exercise}`).then((res) => res.data);
+
+export const getExercises = () => api.get("").then((res) => res.data);

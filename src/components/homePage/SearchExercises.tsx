@@ -1,20 +1,22 @@
 import { useRef } from "react";
-import { useBodyParts } from "../../utils/hooks/hooks";
+
+import { useFilteredExercisesStore } from "../../store";
 
 const SearchExercises = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const { data, isLoading, error, refetch } = useBodyParts();
+  const setInput = useFilteredExercisesStore((state) => state.setExercise);
 
-  const handleSearch = async () => {
+  const handleSearch = async (e: any) => {
+    e.preventDefault();
     if (inputRef.current?.value) {
-      //refetch();
+      setInput(inputRef.current?.value);
     }
   };
 
   return (
-    <div className="px-10 mx-auto ">
+    <form className="px-10 mx-auto space-y-20">
       <div className="flex flex-col items-center justify-center gap-6">
-        <h6 className="font-bold">Awesome Exercises You Should Know</h6>
+        <h4 className="font-bold">Awesome Exercises You Should Know</h4>
         <div className="flex w-full">
           <input
             type="text "
@@ -23,15 +25,14 @@ const SearchExercises = () => {
             ref={inputRef}
           />
           <button
-            className="px-8 text-xl text-white rounded-md bg-primary"
-            type="button"
-            onClick={() => handleSearch()}
+            className="px-8 text-xl text-white bg-red-500 rounded-md"
+            onClick={(e) => handleSearch(e)}
           >
             Search
           </button>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 

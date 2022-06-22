@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
+
 @layer base {
   body {
     @apply bg-[#fffafb] tracking-wide;
@@ -12,7 +14,7 @@
   }
 
   h2 {
-    @apply text-4xl sm:text-4xl;
+    @apply text-5xl sm:text-4xl;
   }
 
   h3 {
@@ -20,14 +22,14 @@
   }
 
   h4 {
-    @apply text-3xl sm:text-4xl;
+    @apply text-3xl;
   }
 
   h5 {
-    @apply text-2xl sm:text-4xl;
+    @apply text-2xl;
   }
 
   h6 {
-    @apply text-xl sm:text-4xl;
+    @apply text-xl;
   }
 }
