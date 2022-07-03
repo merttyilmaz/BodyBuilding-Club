@@ -10,9 +10,10 @@ const Exercises = () => {
   const [currentItems, setCurrentItems] = useState<Exercise[]>([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
+  const [bodyPart, setBodyPart] = useState("");
   const pageViewRef = useRef<HTMLDivElement>(null);
   const { data: exercises, isLoading: exercisesLoading } = useExercises();
-  const { data: exercise, isLoading: exerciseLoading } = useExercise();
+  const { data: exercise, isLoading: exerciseLoading } = useExercise(bodyPart);
   const inputData = useFilteredExercisesStore((state) => state.exercise);
   const itemsPerPage = 9;
 

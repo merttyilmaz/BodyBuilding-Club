@@ -3,7 +3,7 @@ import { getExercise, getExercises } from "../api";
 import { Exercise } from "../types";
 
 export const useExercise = (bodyPart: string) => {
-  return useQuery<Exercise[]>("exercise", getExercise, {
+  return useQuery<Exercise>("exercise", () => getExercise(bodyPart), {
     enabled: false,
   });
 };
